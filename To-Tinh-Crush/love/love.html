@@ -275,15 +275,21 @@
         document.querySelector(".listSlider").prepend(slider[slider.length -1])
     })
 
+    let isMusicPlaying = false;  // Biến để kiểm tra trạng thái phát nhạc
     document.querySelector(".buttonLove").addEventListener("click", function(){
-
+        
         // Bắt đầu phát nhạc khi nhấn nút "Nhận thư"
-        console.log("aaaaaaaaaaaaaaa")
-        var audio = new Audio('../mp3/nhac.mp3');
-        audio.volume = 0.5; // Giảm âm lượng xuống 50%
-        audio.play().catch(error => {
-            console.error("Phát nhạc thất bại:", error);
-        });
+        if (!isMusicPlaying) {  // Kiểm tra nếu nhạc chưa phát
+            // Bắt đầu phát nhạc khi nhấn nút "Nhận thư"
+            console.log("aaaaaaaaaaaaaaa");
+            var audio = new Audio('../mp3/nhac.mp3');
+            audio.volume = 0.5; // Giảm âm lượng xuống 50%
+            audio.play().catch(error => {
+                console.error("Phát nhạc thất bại:", error);
+            });
+            // Đánh dấu là nhạc đã được phát
+            isMusicPlaying = true;
+        }
 
         let timeout = setInterval(()=>{
             var letters = document.createElement("div");
@@ -297,7 +303,7 @@
             letters.style.transform = `rotate(${rotate}deg)`;
             setTimeout(()=>{
                 letters.style.top = "100%";
-            },1000)
+            })
             setTimeout(()=>{
                 letters.remove()
             },11000)
@@ -310,6 +316,7 @@
                 })
             })
         },500)
+        
     })
 
     document.querySelector(".fa-xmark").addEventListener("click", function(){
