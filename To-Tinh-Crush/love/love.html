@@ -244,7 +244,7 @@
     let indexTextContent = 0;
     let textLetterContent = document.querySelector('.contentLetter');
     // thay đổi lời chúc
-    const textLetterP = "1 tuần có 7 ngày. 1 ngày có 24 giờ. 1 giờ có 60 phút. 1 phút có 60 giây. Không có một ngày hoặc giờ mà tôi không nhớ bạn. Không có giây phút nào mà anh không nghĩ đến cậu. Tâm hồn và trái tim tôi tràn ngập bạn. Nhớ và yêu em nhiều lắm.";
+    const textLetterP = "1 tuần có 7 ngày. 1 ngày có 24 giờ. 1 giờ có 60 phút. 1 phút có 60 giây. Không có một ngày hoặc giờ mà anh không nhớ em. Không có giây phút nào mà anh không nghĩ đến em. Tâm hồn và trái tim anh tràn ngập em. Nhớ và yêu em nhiều lắm.";
     let timoutTextLetterContent;
     function textCharLetterContent(){
         if (indexTextContent < textLetterP.length) {
@@ -276,6 +276,15 @@
     })
 
     document.querySelector(".buttonLove").addEventListener("click", function(){
+
+        // Bắt đầu phát nhạc khi nhấn nút "Nhận thư"
+        console.log("aaaaaaaaaaaaaaa")
+        var audio = new Audio('../mp3/nhac.mp3');
+        audio.volume = 0.5; // Giảm âm lượng xuống 50%
+        audio.play().catch(error => {
+            console.error("Phát nhạc thất bại:", error);
+        });
+
         let timeout = setInterval(()=>{
             var letters = document.createElement("div");
             letters.className = "letters"
