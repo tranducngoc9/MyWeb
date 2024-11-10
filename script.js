@@ -68,7 +68,7 @@ loginBtn.addEventListener("click", (event) => {
 
   // Kiểm tra username và password (tùy chỉnh lại nếu cần)
   if (username.value === "a" && password.value === "a") {
-      window.location.href = "To-Tinh-Crush/index.html"; // Chuyển hướng đến trang mới
+      window.location.href = "galaxy/index.html"; // Chuyển hướng đến trang mới
   } else {
       alert("Tên người dùng hoặc mật khẩu không đúng.\n Username : a \n Password : a");
   }
